@@ -1,0 +1,19 @@
+package com.aoa.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class DtoMail extends DtoBase{
+
+	private String address;
+	
+	private String password;
+}
