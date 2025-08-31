@@ -38,14 +38,12 @@ public class SimpleEmailChannel implements INotificationChannel {
 			
 	        return messageRequest;
 		} catch (Exception e) {
+			messageRequest.setRequestStatus(MessageRequestStatus.ERROR_OCCURED);
 			System.out.println("an error occured while sneding email : " + e.toString());
             throw new BaseExcepiton(	new ErrorMessage(MessageType.EMAIL_SERVER_ERROR, e.toString()));
 					
 		}
 		
-		//messageRequest.setRequestStatus(MessageRequestStatus.ERROR_OCCURED);
-		//return messageRequest;
 	}
-	
 
 }
