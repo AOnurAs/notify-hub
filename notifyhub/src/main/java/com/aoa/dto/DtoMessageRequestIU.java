@@ -13,7 +13,11 @@ import lombok.ToString;
 @AllArgsConstructor
 public class DtoMessageRequestIU {
 	
-	private String message;
+	private String msgBody;
+	
+	private String subject;
+	
+	private String attachment;
 	
 	private Long userId;
 	

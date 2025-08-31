@@ -32,9 +32,15 @@ public class MessageRequest extends BaseEntity{
 	@Column(name = "request_type")
 	@Enumerated(EnumType.STRING)
 	private MessageRequestType requestType;
+
+	@Column(name = "subject")
+	private String subject;
 	
-	@Column(name = "message")
-	private String message;
+	@Column(name = "msg_body")
+	private String msgBody;
+	
+	@Column(name = "attachment")
+	private String attachment;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")

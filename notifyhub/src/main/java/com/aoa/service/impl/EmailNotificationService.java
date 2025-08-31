@@ -21,17 +21,25 @@ public class EmailNotificationService extends BaseNotificationService implements
 
 	@Autowired
 	private MessageRequestRepository messageRequestRepository;
-	
+
 	@Autowired
-	@Qualifier("emailChannel")
-	private INotificationChannel emailChannel;
+	@Qualifier("simpleEmailChannel")
+	private INotificationChannel simpleEmailChannel;
+
+	@Autowired
+	@Qualifier("attachmentEmailChannel")
+	private INotificationChannel attachmentEmailChannel;
 	
 	@Override
 	public DtoMessageRequest SendNotification(DtoMessageRequestIU reqeust) {
-		MessageRequest messageRequest = createMessageRequest(reqeust, MessageRequestType.EMAIL);
+		MessageRequest messageRequest = createMessageRequest(reqeust, MessageRequestType.SIMPLE_EMAIL);
 		messageRequestRepository.save(messageRequest);
 		
-		emailChannel.sendMessage(messageRequest);
+		if(messageRequest.getAttachment() != null) {
+			attachmentEmailChannel.sendMessage(messageRequest);
+		}else {
+			simpleEmailChannel.sendMessage(messageRequest);
+		}
 		
 		DtoMessageRequest dtoMessageRequest = new DtoMessageRequest(messageRequest);
 		return dtoMessageRequest;

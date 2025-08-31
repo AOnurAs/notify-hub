@@ -38,7 +38,9 @@ public class BaseNotificationService {
 	                    new ErrorMessage(MessageType.NO_RECORD_EXIST, "(createMessageRequest funciton - BaseNotificationService) Record of recipient with id " + recipientId + " couldnt be found in the database")));
 		
 		messageRequest.setCreateTime(new Date());
-		messageRequest.setMessage(request.getMessage());
+		messageRequest.setMsgBody(request.getMsgBody());
+		messageRequest.setSubject(request.getSubject());
+		messageRequest.setAttachment(request.getAttachment());
 		messageRequest.setRecipient(recipient);
 		messageRequest.setUser(user);
 		messageRequest.setRequestStatus(MessageRequestStatus.PENDING);

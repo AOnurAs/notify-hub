@@ -23,7 +23,11 @@ public class DtoMessageRequest extends DtoBase{
 
 	private MessageRequestType requestType;
 	
-	private String message;
+	private String msgBody;
+	
+	private String subject;
+	
+	private String attachment;
 	
 	private DtoUser dtoUser;
 	

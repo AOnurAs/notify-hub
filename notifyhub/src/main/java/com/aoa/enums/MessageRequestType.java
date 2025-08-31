@@ -4,7 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum MessageRequestType {
-	EMAIL("Request via Email"),
+	SIMPLE_EMAIL("Request via Email"),
+	ATTACHMENT_EMAIL("Request via Email"),
 	TELEGRAM("Request via Telegram"),
 	SMS("Request via SMS");
 	
